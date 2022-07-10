@@ -1,0 +1,19 @@
+<html>
+    <body>
+        <form action="">
+            <div>
+                <h6>Register</h6>    
+            <p>USER NAME</p>
+            <!-- <input type="text" required name="user_name" placeholder="User name" (keyup)="onkeyupun(uname.value)" [value]="u_name" #uname="ngModel"> -->
+            <input required type="text" name="user_name" placeholder="User name" [(ngModel)]="register.username"  #u_name="ngModel">
+            <p>PASSWORD</p> 
+            <input required type="text" name="password" placeholder="password" [(ngModel)]="register.password"  #passw="ngModel">
+            <p>CODE</p> 
+            <input required type="text" name="code" placeholder="code" [(ngModel)]="register.code"  #scode="ngModel">
+            <button *ngIf="u_name.valid && passw.valid && scode.valid" (click)="onsubmit()">submit</button> 
+            <button class="invalidbtn" *ngIf="u_name.invalid || passw.invalid || scode.valid" (click)="popupalert()">submit</button>
+        </div>
+        </form>
+    </body>
+</html>
+

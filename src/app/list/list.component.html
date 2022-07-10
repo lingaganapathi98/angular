@@ -1,0 +1,41 @@
+<html>
+    <body>
+      <button  (click)="logout()">logout</button>  
+        <form>
+            <div class="form"> 
+            <p>NAME</p>
+            <input required type="text" name="name" [(ngModel)]="contac.name" placeholder="name" #name="ngModel">
+            <p><span class="error">Name is required.</span></p>
+            <p>E_MAIL </p>
+            <input required type="text" name="email" [(ngModel)]="contac.email" placeholder="email" #email="ngModel">
+            <p><span class="error">Email is required.</span></p>
+            <p>PH NUMBER</p>
+            <input required type="text" name="phone_number" [(ngModel)]="contac.phnum" placeholder="phone_number" #phonenum="ngModel">
+            <p><span class="error">Phone number is required.</span></p>
+            <button  (click)="onsubmit()">save</button>          
+            <button *ngIf="name.valid && email.valid && phonenum.valid" (click)="onsubmit()">save</button>
+            <button *ngIf="name.invalid || email.invalid || phonenum.invalid" class="invalidbutton" (click)="popupalert()">save</button><br>
+            
+        </div>
+        </form>
+        <h3>contacts</h3>
+    
+    </body>
+</html>
+
+<table>
+    <thead>
+      <tr>
+        <th>  Name  </th>
+        <th>  Email  </th>
+        <th>  Phnumber  </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let contact of cont">
+        <td>{{ contact.name }}</td>
+        <td>{{ contact.email }}</td>
+        <td>{{ contact.phnum }}</td>
+      </tr>
+    </tbody>
+  </table>

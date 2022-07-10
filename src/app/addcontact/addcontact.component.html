@@ -1,0 +1,24 @@
+<html>
+    <body>
+        
+        <form>
+            <div class="form">
+            <p>NAME</p>
+            <input required type="text" name="name" [(ngModel)]="contact.name" placeholder="name" #name="ngModel">
+            <p><span class="error">Name is required.</span></p>
+            <p>E_MAIL </p>
+            <input required type="text" name="address" [(ngModel)]="contact.email" placeholder="email" #email="ngModel">
+            <p><span class="error">Email is required.</span></p>
+            <p>PH NUMBER</p>
+            <input required type="text" name="phone_number" [(ngModel)]="contact.phnum" placeholder="phone_number" #phonenum="ngModel">
+            <p><span class="error">Phone number is required.</span></p>
+                         
+            <button *ngIf="name.valid && email.valid && phonenum.valid" (click)="onsubmit()">save</button>
+            <button *ngIf="name.invalid || email.invalid || phonenum.invalid" class="invalidbutton" (click)="popupalert()">save</button><br>
+            
+        </div>
+        </form>
+        <h3>contacts</h3>
+    
+    </body>
+</html>
